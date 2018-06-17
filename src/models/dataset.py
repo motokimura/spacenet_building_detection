@@ -103,12 +103,12 @@ class LabeledImageDataset(dataset_mixin.DatasetMixin):
 
             # Horizontal flip
             if random.randint(0, 1):
-                image = image[:, :, ::-1]
+                image = image[:, ::-1, :]
                 label = label[:, ::-1]
 
             # Vertical flip
             if random.randint(0, 1):
-                image = image[:, ::-1, :]
+                image = image[::-1, :, :]
                 label = label[::-1, :]                
             
             # Random crop
