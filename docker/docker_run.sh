@@ -1,15 +1,20 @@
 #!/bin/bash
 
-if [ $# -ne 3 ]; then
-    echo "bash docker_run.sh PROJ_DIR DATA_DIR IMAGE"
-    exit 1
+# Set image name
+IMAGE="spacenet_building:test"
+if [ $# -eq 1 ]; then
+    IMAGE=$1
 fi
 
-PROJ_DIR=$1
-DATA_DIR=$2
-IMAGE=$3
+# Set project root dicrectory to map to docker 
+THIS_DIR=`dirname $0`
+PROJ_DIR=`dirname ${THIS_DIR}`
 
+# Make some directories if not exist
+mkdir -p ${PROJ_DIR}/data ${PROJ_DIR}/models
+
+# Run container
 nvidia-docker run -it --rm --ipc=host \
 	-p 8888:8888 -p 6006:6006 \
-	-v ${PROJ_DIR}:/workspace -v ${DATA_DIR}:/workspace/data ${IMAGE} \
-	/bin/bash
+	-v ${PROJ_DIR}:/workspace \
+	${IMAGE} /bin/bash
