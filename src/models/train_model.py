@@ -57,7 +57,9 @@ def train_model():
     print('# epoch: {}'.format(args.epoch))
     print('')
     
-    log_dir = os.path.join('models', args.out)
+    this_dir = os.path.dirname(os.path.abspath(__file__))
+    models_dir = os.path.normpath(os.path.join(this_dir, "../../models"))
+    log_dir = os.path.join(models_dir, args.out)
     writer = SummaryWriter(log_dir=log_dir)
     
     # Set up a neural network to train
