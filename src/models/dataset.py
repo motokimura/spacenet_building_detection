@@ -89,7 +89,7 @@ class LabeledImageDataset(dataset_mixin.DatasetMixin):
             pad_y2, pad_x2 = (H - h - pad_y1), (W - w - pad_x1)
             image = np.pad(image, ((pad_y1, pad_y2), (pad_x1, pad_x2), (0, 0)), 'symmetric')
 
-            if self.__test:
+            if self._test:
                 # Pad with ignore_value for test set
                 label = np.pad(label, ((pad_y1, pad_y2), (pad_x1, pad_x2)), 'constant', constant_values=255)
             else:
