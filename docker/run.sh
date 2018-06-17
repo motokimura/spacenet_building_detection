@@ -14,7 +14,10 @@ PROJ_DIR=`dirname ${THIS_DIR}`
 mkdir -p ${PROJ_DIR}/data ${PROJ_DIR}/models
 
 # Run container
+CONTAINER="spacenet_building"
+
 nvidia-docker run -it --rm --ipc=host \
 	-p 8888:8888 -p 6006:6006 \
 	-v ${PROJ_DIR}:/workspace \
+	--name ${CONTAINER} \
 	${IMAGE} /bin/bash

@@ -31,7 +31,7 @@ def train_model():
                         help='Number of images in each mini-batch')
     parser.add_argument('--test-batchsize', '-B', type=int, default=4,
                         help='Number of images in each test mini-batch')
-    parser.add_argument('--epoch', '-e', type=int, default=40,
+    parser.add_argument('--epoch', '-e', type=int, default=50,
                         help='Number of sweeps over the dataset to train')
     parser.add_argument('--frequency', '-f', type=int, default=1,
                         help='Frequency of taking a snapshot')
