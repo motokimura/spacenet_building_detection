@@ -7,7 +7,7 @@ import chainer.links as L
 
 class UNet(chainer.Chain):
 
-    def __init__(self, class_num, ignore_label=None):
+    def __init__(self, class_num, ignore_label=255):
 
         self.__ignore_label = ignore_label
 
