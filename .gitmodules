@@ -1,3 +1,3 @@
-[submodule "scripts/spacenet_lib"]
-	path = scripts/spacenet_lib
+[submodule "src/features/spacenet_lib"]
+	path = src/features/spacenet_lib
 	url = https://github.com/motokimura/spacenet_lib.git
