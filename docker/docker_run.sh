@@ -7,7 +7,7 @@ if [ $# -eq 1 ]; then
 fi
 
 # Set project root dicrectory to map to docker 
-THIS_DIR=`dirname $0`
+THIS_DIR=$(cd $(dirname $0); pwd)
 PROJ_DIR=`dirname ${THIS_DIR}`
 
 # Make some directories if not exist
