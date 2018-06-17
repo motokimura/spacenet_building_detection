@@ -9,4 +9,4 @@ PROJ_DIR=`dirname ${THIS_DIR}`
 
 # Buld docker container in project root directory
 cd ${PROJ_DIR} && \
-nvidia-docker build -t ${IMAGE} -f docker/Dockerfile .
+nvidia-docker build -t ${IMAGE} -f ${THIS_DIR}/Dockerfile .
