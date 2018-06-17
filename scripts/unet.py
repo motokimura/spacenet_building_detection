@@ -5,13 +5,13 @@ import chainer.functions as F
 import chainer.links as L
 
 
-class UNET(chainer.Chain):
+class UNet(chainer.Chain):
 
     def __init__(self, class_num, ignore_label=None):
 
         self.__ignore_label = ignore_label
 
-        super(UNET, self).__init__(
+        super(UNet, self).__init__(
             c0=L.Convolution2D(3, 32, 3, 1, 1),
             c1=L.Convolution2D(32, 64, 4, 2, 1),
             c2=L.Convolution2D(64, 64, 3, 1, 1),
