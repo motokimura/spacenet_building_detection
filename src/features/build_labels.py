@@ -11,7 +11,7 @@ sys.path.append("spacenet_lib")
 from create_poly_mask import create_poly_mask
 
 
-def prepare_building_labels(src_raster_dir, src_vector_dir, dst_dir):
+def build_labels(src_raster_dir, src_vector_dir, dst_dir):
 
 	file_count = len([f for f in os.walk(src_vector_dir).__next__()[2] if f[-8:] == ".geojson"])
 
@@ -42,4 +42,4 @@ if __name__ == "__main__":
 
 	args = parser.parse_args()
 
-	prepare_building_labels(args.src_raster_dir, args.src_vector_dir, args.dst_dir)
+	build_labels(args.src_raster_dir, args.src_vector_dir, args.dst_dir)

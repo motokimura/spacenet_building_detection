@@ -18,7 +18,7 @@ def dump_filenames(filenames, dst_path):
 			f.write(filename)
 
 
-def split_data(img_dir, dst_dir, ratio, seed=0):
+def split_dataset(img_dir, dst_dir, ratio, seed=0):
 	
 	filenames = os.listdir(img_dir)
 
@@ -55,4 +55,4 @@ if __name__ == "__main__":
 
 	args = parser.parse_args()
 
-	split_data(args.img_dir, args.dst_dir, args.ratio, args.seed)
+	split_dataset(args.img_dir, args.dst_dir, args.ratio, args.seed)
