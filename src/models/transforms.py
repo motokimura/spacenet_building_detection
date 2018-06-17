@@ -48,8 +48,7 @@ def random_color_distort(
         An image in CHW and RGB format.
     """
 
-    #cv_img = img[::-1].transpose((1, 2, 0)).astype(np.uint8)
-    cv_img = img[::-1].astype(np.uint8)
+    cv_img = img[::-1].astype(np.uint8) # RGB to BGR
 
     def convert(img, alpha=1, beta=0):
         img = img.astype(float) * alpha + beta
@@ -104,5 +103,4 @@ def random_color_distort(
         cv_img = hue(cv_img, hue_delta)
         cv_img = contrast(cv_img, contrast_low, contrast_high)
 
-    #return cv_img.astype(np.float32).transpose((2, 0, 1))[::-1]
-    return cv_img[::-1]
+    return cv_img[::-1]  # RGB to BGR
