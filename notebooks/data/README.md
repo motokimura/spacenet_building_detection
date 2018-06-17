@@ -6,6 +6,8 @@ Some notebooks for the experiment to preprocess [SpaceNet](http://explore.digita
 - [libspatialindex](http://libspatialindex.github.io/) (tested with 1.8.5)
 - Python packages listed in [requirements.txt](requirements.txt)
 
+Recommed you to use [docker environment](../../docker).
+
 ## [Demo #1] Building footprints
 
 Download instructions for the SpaceNet building footprint dataset can be 
