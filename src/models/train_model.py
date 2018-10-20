@@ -37,7 +37,7 @@ def train_model():
                         help='Frequency of taking a snapshot')
     parser.add_argument('--gpu', '-g', type=int, default=0,
                         help='GPU ID (negative value indicates CPU)')
-    parser.add_argument('--out', '-o', default='test',
+    parser.add_argument('--out', '-o', default='logs',
                         help='Directory to output the result under "models" directory')
     parser.add_argument('--resume', '-r', default='',
                         help='Resume the training from snapshot')

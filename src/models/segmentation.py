@@ -26,7 +26,7 @@ class SegmentationModel:
 		self.__mean = mean[np.newaxis, np.newaxis, :]
 
 
-	def appply_segmentation(self, image):
+	def apply_segmentation(self, image):
 
 		image_in, crop = self.__preprocess(image)
 
@@ -44,7 +44,7 @@ class SegmentationModel:
 
 	def __preprocess(self, image):
 
-		h, w, _ = image
+		h, w, _ = image.shape
 		h_padded = int(math.ceil(float(h) / 16.0) * 16)
 		w_padded = int(math.ceil(float(w) / 16.0) * 16)
 
