@@ -51,6 +51,8 @@ def train_model():
 
     args = parser.parse_args()
 
+    assert (args.tcrop % 16 == 0) and (args.vcrop % 16 == 0), "tcrop and vcrop must be divisible by 16."
+
     print('GPU: {}'.format(args.gpu))
     print('# Minibatch-size: {}'.format(args.batchsize))
     print('# Crop-size: {}'.format(args.tcrop))
