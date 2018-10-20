@@ -6,4 +6,9 @@ __pycache__
 .DS_Store
 
 /data
+!/data/dataSplit
+
 /models
+!/models/logs/model_iter_14878
+!/models/logs/log
+!/models/logs/events.out.tfevents.1529244722.230475050eb2
