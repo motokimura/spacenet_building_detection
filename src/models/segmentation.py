@@ -42,6 +42,44 @@ class SegmentationModel:
 		return score
 
 
+	def apply_segmentation_to_mosaic(self, mosaic, grid_px=800, tile_overlap_px=200):
+
+		h, w, _ = mosaic.shape
+
+		assert ((grid_px + tile_overlap_px * 2) % 16 == 0), "(grid_px + tile_overlap_px * 2) must be divisible by 16"
+
+		pad_y1 = tile_overlap_px
+		pad_x1 = tile_overlap_px
+
+		n_y = int(float(h) / float(grid_px))
+		n_x = int(float(w) / float(grid_px))
+		pad_y2 = n_y * grid_px + 2 * tile_overlap_px - h - pad_y1
+		pad_x2 = n_x * grid_px + 2 * tile_overlap_px - h - pad_x1
+
+		mosaic_padded = np.pad(mosaic, ((pad_y1, pad_y2), (pad_x1, pad_x2), (0, 0)), 'symmetric')
+
+		H, W, _ = mosaic_padded.shape
+		score_padded = np.zeros(shape=[self.__model.class_num, H, W], dtype=np.float32)
+
+		for yi in range(n_y):
+		    for xi in range(n_x):
+		        
+		        top = yi * grid_px
+		        left = xi * grid_px
+		        bottom = top + grid_px + 2 * tile_overlap_px
+		        right = left + grid_px + 2 * tile_overlap_px
+		        
+		        tile = mosaic_padded[top:bottom, left:right]
+		        
+		        score_tile = self.apply_segmentation(tile)
+		        
+		        score_padded[:, top:bottom, left:right] = score_tile
+
+		score = score_padded[:, pad_y1:-pad_y2, pad_x1:-pad_x2]
+
+		return score
+
+
 	def __preprocess(self, image):
 
 		h, w, _ = image.shape

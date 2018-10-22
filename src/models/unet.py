@@ -9,6 +9,7 @@ class UNet(chainer.Chain):
 
     def __init__(self, class_num=2, ignore_label=255):
 
+        self.__class_num = class_num
         self.__ignore_label = ignore_label
 
         super(UNet, self).__init__(
@@ -99,3 +100,9 @@ class UNet(chainer.Chain):
         chainer.report({'loss': loss, 'accuracy': accuracy}, self)
         
         return loss
+
+        
+    @property
+    def class_num(self):
+        return self.__class_num
+    
