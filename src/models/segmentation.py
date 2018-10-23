@@ -86,15 +86,20 @@ class SegmentationModel:
 		h_padded = int(math.ceil(float(h) / 16.0) * 16)
 		w_padded = int(math.ceil(float(w) / 16.0) * 16)
 
-		image_pad = np.zeros(shape=[h_padded, w_padded, 3], dtype=np.float32)
-		top, left = (h_padded - h) // 2, (w_padded - w) // 2
-		bottom, right = top + h, left + w
-		image_pad[top:bottom, left:right, :] = image
-			
-		image_in = (image_pad - self.__mean) / 255.0
+		pad_y1 = (h_padded - h) // 2
+		pad_x1 = (w_padded - w) // 2
+		pad_y2 = h_padded - h - pad_y1
+		pad_x2 = w_padded - w - pad_x1
+
+		image_padded = np.pad(image, ((pad_y1, pad_y2), (pad_x1, pad_x2), (0, 0)), 'symmetric')
+		image_in = (image_padded - self.__mean) / 255.0
 		image_in = image_in.transpose(2, 0, 1)
 		image_in = image_in[np.newaxis, :, :, :]
-	
 		image_in = Variable(cuda.cupy.asarray(image_in, dtype=cuda.cupy.float32))
+
+		top = pad_y1
+		left = pad_x1
+		bottom = -pad_y2
+		right = -pad_x2
 
 		return image_in, (top, left, bottom, right)
