@@ -97,9 +97,7 @@ class SegmentationModel:
 		image_in = image_in[np.newaxis, :, :, :]
 		image_in = Variable(cuda.cupy.asarray(image_in, dtype=cuda.cupy.float32))
 
-		top = pad_y1
-		left = pad_x1
-		bottom = -pad_y2
-		right = -pad_x2
+		top, left = pad_y1, pad_x1
+		bottom, right = top + h, left + w
 
 		return image_in, (top, left, bottom, right)
