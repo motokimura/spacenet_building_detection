@@ -1,6 +1,6 @@
 # SpaceNet Building Detection
 
-This repository privide some python scripts and jupyter notebooks to train and evaluate convolutional neural networks 
+This repository privides some python scripts and jupyter notebooks to train and evaluate convolutional neural networks 
 which extracts buildings from satellite images. 
 
 ## Dependency
@@ -9,10 +9,14 @@ which extracts buildings from satellite images.
 * [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker)
 * [AWS CLI](https://docs.aws.amazon.com/streams/latest/dev/kinesis-tutorial-cli-installation.html)
 
-## Download SpaceNet
+## Usage
 
-## Train U-Net
+### 1. Download SpaceNet
 
-## Evaluate U-Net
+### 2. Build Docker image
+
+### 3. Train U-Net
+
+### 4. Evaluate U-Net
 
 ## License
