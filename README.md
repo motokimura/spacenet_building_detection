@@ -1,7 +1,7 @@
 # SpaceNet Building Detection
 
 This repository privides some python scripts and jupyter notebooks to train and evaluate convolutional neural networks 
-which extracts buildings from [SpaceNet](https://spacenetchallenge.github.io/) satellite images. 
+which extract buildings from [SpaceNet](https://spacenetchallenge.github.io/) satellite images. 
 
 ![](contents/mosaic_unet_segmentation.png)
 
@@ -87,7 +87,7 @@ like below:
 ### 4. Train U-Net
 
 Train [U-Net](https://arxiv.org/abs/1505.04597), 
-a convolutional neural networks originaly developed for medical image segmentation.
+a convolutional neural network originaly developed for medical image segmentation.
 
 Train U-Net with SpaceNet dataset by following:
 
