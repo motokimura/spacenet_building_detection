@@ -57,12 +57,72 @@ $ bash build.sh
 
 Even though you can use this repo without docker, I strongly reccomend you to use it because you may have some troubles to install some geo-spatial data processing libraries. In case you don't want to use docker, you have  to install additional dependencies described in `docker/Dockerfile`.
 
-### 3. Train U-Net
+### 3. Preprocess SpaceNet dataset
 
-### 4. Evaluate U-Net
+Convert SpaceNet ground-truth building footprints from GeoJSON into building mask images.
+
+Run docker container by following: 
+
+```
+$ cd $PROJ_DIR/docker
+$ bash run.sh
+```
+
+Now you should be inside the docker container you ran. 
+Convert SpaceNet dataset by following:
+
+```
+$(docker) cd /workspace/src/features
+$(docker) python build_labels.py ../../data/processedBuildingLabels/3band ../../data/processedBuildingLabels/vectordata/geojson ../../data/buildingMaskImages
+```
+
+### 4. Train U-Net
+
+Train [U-Net](https://arxiv.org/abs/1505.04597), 
+a convolutional neural networks originaly developed for medical image segmentation.
+
+Train U-Net with SpaceNet dataset by following:
+```
+$(docker) cd /workspace/src/models
+$ python train_model.py
+```
+You can sheck training status and validation accuracy from TensorBoard.
+```
+# Open another terminal window outside the container and type:
+$ cd $PROJ_DIR/docker
+$ bash exec.sh
+
+# Now you should be inside the container already running. Start TensorBoard by following:
+$(docker) tensorboard --logdir /workspace/src/models
+```
+
+Then, open `http://localhost:6006` from your browser.
+
+### 5. Evaluate U-Net
+
+Evaluate U-Net with jupyter notebook. 
+
+Luanch jupyter notebook by flollowing:
+```
+$(docker) cd /workspace
+$(docker) jupyter notebook
+```
+
+Then, open `http://localhost:8888` from your browser.
+
+#### 5.1 Qualitative evaluation
+
+* See [this notebook](notebooks/visualization/show_segmentation_on_tile.ipynb) to see segmentation result on tile images in test-plit
+* See [this notebook](notebooks/visualization/show_segmentation_on_mosaic.ipynb) to see segmentation result source mosaic images
+
+Note that you may need to modify path to the pre-trained model defined in the notebooks. 
+
+#### 5.1 Quantitative evaluation
+
+* See [this notebook](notebooks/models/evaluate_model.ipynb)
+
+Note that you may need to modify path to the pre-trained model defined in the notebooks. 
 
 ## License
 
 [MIT License](LICENSE)
-
-## References
