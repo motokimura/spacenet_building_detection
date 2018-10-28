@@ -132,7 +132,8 @@ Open [this notebook](notebooks/models/evaluate_model.ipynb)
 
 #### 5.2 Qualitative evaluation on test tile-images
 
-Open [this notebook](notebooks/visualization/show_segmentation_on_test_tile.ipynb) to see segmentation result on tile images in test-plit
+Open [this notebook](notebooks/visualization/show_segmentation_on_test_tile.ipynb) 
+to see segmentation results on tile images in test-plit.
 
 Output examples:
 
@@ -140,7 +141,8 @@ Output examples:
 
 #### 5.3 Qualitative evaluation on mosaic images
 
-Open [this notebook](notebooks/visualization/show_segmentation_on_mosaic.ipynb) to see segmentation result source mosaic images
+Open [this notebook](notebooks/visualization/show_segmentation_on_mosaic.ipynb) 
+to see segmentation results on source mosaic images.
 
 Output examples:
 
