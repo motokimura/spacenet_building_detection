@@ -128,7 +128,7 @@ Then, open `http://localhost:8888` from your browser.
 
 #### 5.1 Quantitative evaluation
 
-Open [this notebook](notebooks/models/evaluate_model.ipynb)
+Open [this notebook](notebooks/models/evaluate_model.ipynb).
 
 #### 5.2 Qualitative evaluation on test tile-images
 
