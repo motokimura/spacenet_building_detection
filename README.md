@@ -48,8 +48,21 @@ You can find more details [here](https://spacenetchallenge.github.io/AOI_Lists/A
 
 ### 2. Build Docker image
 
+Build docker image to setup the environment to preprocess SpaceNet dataset, train and evaluate the convolutional neural networks. 
+
+```
+$ cd $PROJ_DIR/docker
+$ bash build.sh
+```
+
+Even though you can use this repo without docker, I strongly reccomend you to use it because you may have some troubles to install some geo-spatial data processing libraries. In case you don't want to use docker, you have  to install additional dependencies described in `docker/Dockerfile`.
+
 ### 3. Train U-Net
 
 ### 4. Evaluate U-Net
 
 ## License
+
+[MIT License](LICENSE)
+
+## References
