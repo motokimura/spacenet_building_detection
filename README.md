@@ -3,6 +3,8 @@
 This repository privides some python scripts and jupyter notebooks to train and evaluate convolutional neural networks 
 which extracts buildings from [SpaceNet](https://spacenetchallenge.github.io/) satellite images. 
 
+![](contents/mosaic_unet_segmentation.png)
+
 ## Dependency
 
 * [NVIDIA Driver](https://www.nvidia.com/Download/index.aspx)
@@ -76,6 +78,12 @@ $(docker) cd /workspace/src/features
 $(docker) python build_labels.py ../../data/processedBuildingLabels/3band ../../data/processedBuildingLabels/vectordata/geojson ../../data/buildingMaskImages
 ```
 
+Now you will find many pairs of satellite image and building mask image 
+in `data/processedBuildingLabels/3band` and `data/buildingMaskImages` respectively 
+like below: 
+
+<img src="contents/spacenet_tile.png" width=60%>
+
 ### 4. Train U-Net
 
 Train [U-Net](https://arxiv.org/abs/1505.04597), 
@@ -101,6 +109,8 @@ $(docker) tensorboard --logdir /workspace/models
 
 Then, open `http://localhost:6006` from your browser.
 
+<img src="contents/tensorboard.png" width=70%>
+
 ### 5. Evaluate U-Net
 
 Evaluate U-Net with jupyter notebook. 
@@ -114,18 +124,29 @@ $(docker) jupyter notebook
 
 Then, open `http://localhost:8888` from your browser.
 
-#### 5.1 Qualitative evaluation
-
-* Open [this notebook](notebooks/visualization/show_segmentation_on_test_tile.ipynb) to see segmentation result on tile images in test-plit
-* Open [this notebook](notebooks/visualization/show_segmentation_on_mosaic.ipynb) to see segmentation result source mosaic images
-
-Note that you may need to modify the path to pre-trained model defined in the notebooks. 
+*Note that you may need to modify the path to pre-trained model defined in the notebooks.*
 
 #### 5.1 Quantitative evaluation
 
-* Open [this notebook](notebooks/models/evaluate_model.ipynb)
+Open [this notebook](notebooks/models/evaluate_model.ipynb)
 
-Note that you may need to modify the path to pre-trained model defined in the notebooks. 
+#### 5.2 Qualitative evaluation on test tile-images
+
+Open [this notebook](notebooks/visualization/show_segmentation_on_test_tile.ipynb) to see segmentation result on tile images in test-plit
+
+Output examples:
+
+![](contents/test_tile_unet.png)
+
+#### 5.3 Qualitative evaluation on mosaic images
+
+Open [this notebook](notebooks/visualization/show_segmentation_on_mosaic.ipynb) to see segmentation result source mosaic images
+
+Output examples:
+
+![](contents/mosaic_spacenet.png)
+![](contents/mosaic_unet_score.png)
+
 
 ## License
 
