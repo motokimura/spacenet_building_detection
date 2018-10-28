@@ -82,18 +82,21 @@ Train [U-Net](https://arxiv.org/abs/1505.04597),
 a convolutional neural networks originaly developed for medical image segmentation.
 
 Train U-Net with SpaceNet dataset by following:
+
 ```
 $(docker) cd /workspace/src/models
 $(docker) python train_model.py
 ```
+
 You can sheck training status and validation accuracy from TensorBoard.
+
 ```
 # Open another terminal window outside the container and type:
 $ cd $PROJ_DIR/docker
 $ bash exec.sh
 
 # Now you should be inside the container already running. Start TensorBoard by following:
-$(docker) tensorboard --logdir /workspace/src/models
+$(docker) tensorboard --logdir /workspace/models
 ```
 
 Then, open `http://localhost:6006` from your browser.
@@ -103,6 +106,7 @@ Then, open `http://localhost:6006` from your browser.
 Evaluate U-Net with jupyter notebook. 
 
 Luanch jupyter notebook by flollowing:
+
 ```
 $(docker) cd /workspace/notebooks
 $(docker) jupyter notebook
