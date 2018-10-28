@@ -84,7 +84,7 @@ a convolutional neural networks originaly developed for medical image segmentati
 Train U-Net with SpaceNet dataset by following:
 ```
 $(docker) cd /workspace/src/models
-$ python train_model.py
+$(docker) python train_model.py
 ```
 You can sheck training status and validation accuracy from TensorBoard.
 ```
@@ -104,7 +104,7 @@ Evaluate U-Net with jupyter notebook.
 
 Luanch jupyter notebook by flollowing:
 ```
-$(docker) cd /workspace
+$(docker) cd /workspace/notebooks
 $(docker) jupyter notebook
 ```
 
@@ -112,16 +112,16 @@ Then, open `http://localhost:8888` from your browser.
 
 #### 5.1 Qualitative evaluation
 
-* See [this notebook](notebooks/visualization/show_segmentation_on_tile.ipynb) to see segmentation result on tile images in test-plit
-* See [this notebook](notebooks/visualization/show_segmentation_on_mosaic.ipynb) to see segmentation result source mosaic images
+* Open [this notebook](notebooks/visualization/show_segmentation_on_test_tile.ipynb) to see segmentation result on tile images in test-plit
+* Open [this notebook](notebooks/visualization/show_segmentation_on_mosaic.ipynb) to see segmentation result source mosaic images
 
-Note that you may need to modify path to the pre-trained model defined in the notebooks. 
+Note that you may need to modify the path to pre-trained model defined in the notebooks. 
 
 #### 5.1 Quantitative evaluation
 
-* See [this notebook](notebooks/models/evaluate_model.ipynb)
+* Open [this notebook](notebooks/models/evaluate_model.ipynb)
 
-Note that you may need to modify path to the pre-trained model defined in the notebooks. 
+Note that you may need to modify the path to pre-trained model defined in the notebooks. 
 
 ## License
 
