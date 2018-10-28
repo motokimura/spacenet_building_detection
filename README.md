@@ -38,7 +38,7 @@ $ cd processedBuildingLabels
 $ tar -xvf 3band.tar.gz
 
 $ cd vectordata 
-$ tar geojson.tar.gz
+$ tar -xvf geojson.tar.gz
 
 # Download the Source Imagery Mosaic (3-band = 2.3 GB and 8-band = 6.5 GB)
 $ cd $PROJ_DIR/data
@@ -79,7 +79,7 @@ $(docker) python build_labels.py ../../data/processedBuildingLabels/3band ../../
 ```
 
 Now you will find many pairs of satellite image and building mask image 
-in `data/processedBuildingLabels/3band` and `data/buildingMaskImages` respectively 
+in `$PROJ_DIR/data/processedBuildingLabels/3band` and `$PROJ_DIR/data/buildingMaskImages` respectively 
 like below: 
 
 <img src="contents/spacenet_tile.png" width=60%>
