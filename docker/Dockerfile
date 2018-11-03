@@ -59,7 +59,7 @@ RUN pip install tensorflow tensorboard tensorboardX \
 RUN jupyter notebook --generate-config && \
     ipython profile create
 
-RUN echo "c.NotebookApp.ip = '*'" >> /root/.jupyter/jupyter_notebook_config.py && \
+RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_notebook_config.py && \
     echo "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py && \
     echo "c.InteractiveShellApp.matplotlib = 'inline'" >> /root/.ipython/profile_default/ipython_config.py && \
     HASH=$(python3 -c "from IPython.lib import passwd; print(passwd('passw0rd'))") && \
