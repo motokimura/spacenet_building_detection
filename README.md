@@ -23,7 +23,7 @@ $ git clone --recursive https://github.com/motokimura/spacenet_building_detectio
 
 ### 1. Download SpaceNet dataset
 
-Download satellite image and ground-truth building footprint data (of SpaceNet AOI-1 Rio). 
+Download satellite images and ground-truth building footprints (of SpaceNet AOI-1 Rio). 
 Assuming you already configured [AWS CLI](https://docs.aws.amazon.com/streams/latest/dev/kinesis-tutorial-cli-installation.html) 
 to download the data from AWS S3.
 
@@ -50,14 +50,14 @@ You can find more details [here](https://spacenetchallenge.github.io/AOI_Lists/A
 
 ### 2. Build Docker image
 
-Build docker image to setup the environment to preprocess SpaceNet dataset, train and evaluate the convolutional neural networks. 
+Build docker image to setup the environment to preprocess SpaceNet dataset and train/evaluate convolutional neural networks. 
 
 ```
 $ cd $PROJ_DIR/docker
 $ bash build.sh
 ```
 
-Even though you can use this repo without docker, I strongly reccomend you to use it because you may have some troubles to install some geo-spatial data processing libraries. In case you don't want to use docker, you have  to install additional dependencies described in `docker/Dockerfile`.
+I strongly reccomend you to use docker because you may have some troubles to install some geo-spatial data processing libraries. In case you don't want to use docker, you have to install additional dependencies described in `docker/Dockerfile`.
 
 ### 3. Preprocess SpaceNet dataset
 
@@ -78,7 +78,7 @@ $(docker) cd /workspace/src/features
 $(docker) python build_labels.py ../../data/processedBuildingLabels/3band ../../data/processedBuildingLabels/vectordata/geojson ../../data/buildingMaskImages
 ```
 
-Now you will find many pairs of satellite image and building mask image 
+Now you will find many pairs of satellite images and building mask images 
 in `$PROJ_DIR/data/processedBuildingLabels/3band` and `$PROJ_DIR/data/buildingMaskImages` respectively 
 like below: 
 
@@ -96,7 +96,7 @@ $(docker) cd /workspace/src/models
 $(docker) python train_model.py
 ```
 
-You can sheck training status and validation accuracy from TensorBoard.
+You can check training status and validation accuracy from TensorBoard:
 
 ```
 # Open another terminal window outside the container and type:
@@ -124,7 +124,7 @@ $(docker) jupyter notebook
 
 Then, open `http://localhost:8888` from your browser.
 
-*Note that you may need to modify the path to pre-trained model defined in the notebooks.*
+*Note that you may need to modify the path to pre-trained model defined in the notebooks below.*
 
 #### 5.1 Quantitative evaluation
 
