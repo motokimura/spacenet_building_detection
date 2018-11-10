@@ -93,7 +93,7 @@ Train U-Net with SpaceNet dataset by following:
 
 ```
 $(docker) cd /workspace/src/models
-$(docker) python train_model.py
+$(docker) python train_model.py ../../data/dataSplit ../../data/processedBuildingLabels/3band ../../data/buildingMaskImages
 ```
 
 You can check training status and validation accuracy from TensorBoard:
