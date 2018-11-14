@@ -57,7 +57,7 @@ $ cd $PROJ_DIR/docker
 $ bash build.sh
 ```
 
-I strongly reccomend you to use docker because you may have some troubles to install some geo-spatial data processing libraries. In case you don't want to use docker, you have to install additional dependencies described in `docker/Dockerfile`.
+I strongly reccomend you to use docker because you may have some troubles to install some geo-spatial data processing libraries. In case you don't want to use docker, you have to install additional dependencies described in [Dockerfile](docker/Dockerfile)`.
 
 ### 3. Preprocess SpaceNet dataset
 
