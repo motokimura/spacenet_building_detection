@@ -115,7 +115,7 @@ Then, open `http://localhost:6006` from your browser.
 
 Evaluate U-Net with jupyter notebook. 
 
-Luanch jupyter notebook by flollowing:
+Launch jupyter notebook by flollowing:
 
 ```
 $(docker) cd /workspace/notebooks
