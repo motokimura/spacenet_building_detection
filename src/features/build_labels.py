@@ -12,6 +12,8 @@ from create_poly_mask import create_poly_mask
 
 
 def build_labels(src_raster_dir, src_vector_dir, dst_dir):
+	
+	os.makedirs(dst_dir, exist_ok=True)
 
 	file_count = len([f for f in os.walk(src_vector_dir).__next__()[2] if f[-8:] == ".geojson"])
 
