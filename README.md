@@ -124,6 +124,8 @@ $(docker) jupyter notebook
 
 Then, open `http://localhost:8888` from your browser.
 
+Default password is `passw0rd` as defined in [Dockerfile](https://github.com/motokimura/spacenet_building_detection/blob/1458d25ec15430629fe55a0b24f34230affaaeee/docker/Dockerfile#L65).
+
 *Note that you may need to modify the path to pre-trained model defined in the notebooks below.*
 
 #### 5.1 Quantitative evaluation
