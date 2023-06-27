@@ -24,7 +24,7 @@ RUN curl -L http://download.osgeo.org/libspatialindex/spatialindex-src-1.8.5.tar
 
 # Setup conda environment
 ENV PYTHON_VERSION=3.6
-RUN curl -o ~/miniconda.sh -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+RUN curl -L -o ~/miniconda.sh -O https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     chmod +x ~/miniconda.sh && ~/miniconda.sh -b -p /opt/conda && rm ~/miniconda.sh && \
     /opt/conda/bin/conda create -y --name py$PYTHON_VERSION \
         python=$PYTHON_VERSION \
